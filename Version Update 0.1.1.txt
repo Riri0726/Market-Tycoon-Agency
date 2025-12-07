@@ -1,0 +1,25 @@
+Version Update v0.1.1
+
+Update
+- Change the pitch to prepare for a pitch, each preparation cost money, so its like an investment to claim the producer
+- Some pitches will require a turn as a preparation of the producer if they really want to accept the pitch (Producers can either decline or accept the pitch)
+- Slot for partnered producers is limited to two only but eventually go higher 
+- Make it also as SPA
+- Live feed uploaded videos is almost too fast to produce, as well as the views adjust the calculation, it is not required to go up from time to time
+- The work day shouldn't be in 10 seconds its too fast, make it atleast 20 seconds
+- Views are not required to go up everytime.
+- Add an analytics button where I can see the days if its net positive or negative
+- Add more producers and remove the # in their name, create also a page where you can see all the possible  producers
+- Each producers cost when pitching right I also want it so that each producers has different pitch value, since we need to add a archetypes to them like rare, epic, legendary (base it on the producers in the market that requires content service)
+- aside from the producers I want you to add more contents so that it is not repetitive 
+
+UI Design
+- Refer to the style.json.txt for the assets you can use that set up as well and palette for the whole design
+- Revise the Names for other producers and create a list of producers and different video contents as well the description 
+- Make it a typical game designed UI 
+
+
+Versioning
+- Update everytime you will use this versioning text
+- create a versioning text file where you include everything you update it but a short description only
+- update also the build dev below the footer
