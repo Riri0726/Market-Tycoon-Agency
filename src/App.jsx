@@ -60,8 +60,11 @@ function ProducersPage() {
 }
 
 function App() {
+    // Get base path for GitHub Pages (e.g., /market-tycoon-agency/)
+    const basePath = import.meta.env.BASE_URL || '/';
+    
     return (
-        <Router>
+        <Router basename={basePath}>
             <GameProvider>
                 <Routes>
                     <Route path="/" element={<GameContent />} />
