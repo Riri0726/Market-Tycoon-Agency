@@ -5,9 +5,10 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  // GitHub Pages base path - change 'market-tycoon-agency' to your actual repo name
-  // For custom domain, use '/' instead
-  base: process.env.NODE_ENV === 'production' ? '/market-tycoon-agency/' : '/',
+  // GitHub Pages base path
+  // For custom domain (buzztard.me), use '/' 
+  // For GitHub Pages subdomain, use '/market-tycoon-agency/'
+  base: process.env.NODE_ENV === 'production' ? '/' : '/',
   build: {
     // Copy 404.html to dist for GitHub Pages SPA routing
     rollupOptions: {

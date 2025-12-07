@@ -46,16 +46,32 @@ The error you're seeing happens because GitHub Pages needs the **built version**
    - Go to **Settings** → **Pages**
    - Select **gh-pages** branch and **/ (root)** folder
 
-## Important: Update Repository Name
+## Important: Custom Domain Configuration
 
-If your GitHub repository has a **different name** than `market-tycoon-agency`, you need to update:
+### If using a custom domain (like buzztard.me):
+
+1. **vite.config.js** - Base path is already set to `/` for custom domains ✅
+2. **CNAME file** - Created with `buzztard.me` ✅
+3. **GitHub Pages Settings:**
+   - Go to **Settings** → **Pages**
+   - Under **Custom domain**, enter: `buzztard.me`
+   - Check **Enforce HTTPS**
+
+4. **DNS Configuration:**
+   - Add a CNAME record pointing `buzztard.me` to `[your-username].github.io`
+   - Or add A records pointing to GitHub Pages IPs:
+     - 185.199.108.153
+     - 185.199.109.153
+     - 185.199.110.153
+     - 185.199.111.153
+
+### If using GitHub Pages subdomain:
 
 1. **vite.config.js** - Change the base path:
    ```js
-   base: process.env.NODE_ENV === 'production' ? '/your-repo-name/' : '/',
+   base: process.env.NODE_ENV === 'production' ? '/market-tycoon-agency/' : '/',
    ```
-
-2. **.github/workflows/deploy.yml** - Update if needed (usually not necessary)
+   (Change `market-tycoon-agency` to your actual repo name)
 
 ## After Deployment
 
@@ -65,7 +81,23 @@ If your GitHub repository has a **different name** than `market-tycoon-agency`, 
 
 ## Troubleshooting
 
-- **Still seeing MIME errors?** Make sure you're accessing the deployed version, not the source files
-- **Routes not working?** The 404.html file should handle this automatically
-- **Assets not loading?** Check that the base path in vite.config.js matches your repo name
+### MIME Type Error (text/html instead of application/javascript)
+
+**This means the server is serving source files instead of built files.**
+
+**Solution:**
+1. Make sure the app is **built and deployed** (check Actions tab)
+2. The base path in `vite.config.js` should be `/` for custom domains
+3. Clear browser cache and hard refresh (Ctrl+Shift+R)
+4. Wait a few minutes after deployment for DNS/propagation
+
+### Routes not working?
+- The 404.html file should handle this automatically
+- Make sure 404.html is in the dist folder after build
+
+### Assets not loading?
+- Check that the base path in vite.config.js is correct:
+  - Custom domain: `/`
+  - GitHub subdomain: `/repo-name/`
+- Verify CNAME file is in the dist folder (for custom domains)
 
